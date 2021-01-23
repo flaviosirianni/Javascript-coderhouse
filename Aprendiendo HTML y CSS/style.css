@@ -1,0 +1,62 @@
+/* SELECTORS
+Sirven para elegir qué voy a modificar.
+Pueden ser ELEMENT, CLASS, ID. Hay más pero yafu.
+*/
+
+/* ELEMENT -> pongo por ejemplo h1 y todos los h1 de mi html cambian.
+
+/* CLASS -> class es un atributo que le puedo dar a todos mis elementos HTML, así que esta es la que va.
+se pone .class-name
+
+Ejemplo
+
+.boton{
+    padding: 10px;
+    color: white;
+}
+
+.btn1{background-color: green;}
+.btn2{background-color: red;}
+
+y después en el HTML pongo
+
+<button class= "btn btn1">
+    button 1
+</button>
+
+<button class= "btn btn2">
+    button 2
+</button>
+*/
+
+/* ID -> igual que Class, con la salvedad de que los ID de los elementos HTML no se pueden repetir, mientras que las CLASS sí.
+/* Se pone #ID
+
+
+/* Puedo combinar los selectors para más especificidad.
+
+Se hace directamente poniendo uno atrás del otro, sin espacios.
+Ej.
+.selector1.selector2{ lo que quiera ;}
+
+
+Puedo también combinar ancestor y child. Por ejemplo si quiero modificar el estilo de todos los <p> que están adentro de <div> pongo así:
+    div p { lo que quiera }
+*/
+
+/* Puedo seleccionar TODA la web para modificarla a la vez, se usa así
+    * { lo que quiera }
+
+
+
+/* IMPORTANTE -> Class e ID le ganana a ELEMENT, por lo tanto si aplico x ej 1 color para todos los h1 pero después defino una clase 
+específica para alguno de ellos con otro color, ese prevalece.
+Es ID > CLASS > ELEMENT.
+*/
+
+
+/* Cómo cargar el CSS en el HTML
+<head>
+    <link rel="stylesheet" href="style.css" />
+    el rel es un atributo que me define la relación entre el HTML y lo que estoy cargando. Tiene que ser stylesheet para htmls.
+</head>
