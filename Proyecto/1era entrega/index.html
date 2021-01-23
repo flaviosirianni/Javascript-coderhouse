@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Préstamos Personales</title>
+    <script src="script1.js"> </script>
+</head>
+
+<body>
+
+    <h2>Simulador de Préstamos Personales</h2>
+    <h3>Flavio Sirianni</h3>
+    <h3>Curso JavaScript</h3>
+    <hr><br/><br/>
+    
+
+    <h4>Tabla de Intereses</h4>
+    <table border="5" id="tablaIntereses">
+        <tr>
+            <td>Meses</td>
+            <td>12 meses</td>
+            <td>24 meses</td>
+            <td>36 meses</td>
+            <td>48 meses</td>
+            <td>60 meses</td>
+            <td>72 meses</td>
+        </tr>
+        <tr>
+            <td>Interés</td>
+            <td value="8">8%</td>
+            <td>10%</td>
+            <td>12%</td>
+            <td>14%</td>
+            <td>16%</td>
+            <td>18%</td>
+        </tr>
+    </table>
+    <br/>
+    <hr>
+    
+    <form>
+
+        Cuánto dinero necesitás? <input id="dineroPrestado" type="number"/>
+
+        <p>En cuántos meses querés devolverlo?
+            <select id="plazoPago">
+                <option value="12">12 meses</option>
+                <option value="24">24 meses</option>
+                <option value="36">36 meses</option>
+                <option value="48">48 meses</option>
+                <option value="60">60 meses</option>
+                <option value="72">72 meses</option>
+            </select>
+        </p>
+        <br/>
+        <input type="button" value="Realizar consulta" onclick="calculoCuotaMensual()"/>
+        <br/>
+      
+    </form>
+    <br/>
+    
+    <p><span id="resultado"> </span></p>
+    <p><span id="totalDevuelto"></span></p>
+
+</body>
+
+</html>
