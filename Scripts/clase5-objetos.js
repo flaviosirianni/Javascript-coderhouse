@@ -134,3 +134,31 @@ let productoMIL = new ProductoNuevo("productoMIL", 1200, 1540);
 productoMIL.mostrarProducto();
 
 
+// Acá clase 6 sigue
+
+// Piola esto. Armo base de datos pusheandole cosas adentro.
+
+let productoClase6_1 = new ProductoNuevo('Zapatilla1',1000,15);
+let productoClase6_2 = new ProductoNuevo('Zapatilla2',1000,15);
+let productoClase6_3 = new ProductoNuevo('Zapatilla3',1000,15);
+let productoClase6_4 = new ProductoNuevo('Zapatilla4',1000,15);
+
+let baseDeDatosClase6 = [];
+
+baseDeDatosClase6.push(productoClase6_1);
+baseDeDatosClase6.push(productoClase6_2);
+baseDeDatosClase6.push(productoClase6_3);
+baseDeDatosClase6.push(productoClase6_4);
+
+console.log(baseDeDatosClase6);
+
+let aux = ``;
+for(let i = 0; i < baseDeDatosClase6.length; i++){
+    aux += `
+        <div> ${baseDeDatosClase6[i].nombre} </div>
+    `;
+}
+console.log(aux);
+
+// EN EL PROYECTO MANDARLE FOTOS DE 200KB O MENOS.
+// Practicar el carrito, buscar un template de un carrito y mejorarlo con Fors y demás.
