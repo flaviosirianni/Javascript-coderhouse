@@ -11,9 +11,10 @@
 <body>
 
     <h2>Simulador de Préstamos Personales</h2>
-    <h3>Flavio Sirianni</h3>
-    <h3>Curso JavaScript</h3>
-    <hr><br/><br/>
+    <h4>Flavio Sirianni</h4>
+    <h5>CoderHouse - JavaScript</h5>
+    <br/>
+    <hr><br/>
     
 
     <h4>Tabla de Intereses</h4>
@@ -37,11 +38,20 @@
             <td>18%</td>
         </tr>
     </table>
-    <br/>
+    <br/><br/>
+    <h4>TNA = 66.00%</h4>
+    <br><br>
     <hr>
     
     <form>
-
+        <br/><br/>
+        ¿Cuánto ganás por mes? <input id="sueldo" type="number"/>
+        <br/><br/>
+        ¿Cuánto pagás de otras cuotas por mes? <input id="gastos" type="number"/>
+        <br/><br/>
+        <input type="button" value="Realizar consulta" onclick="calculoCuotaMensual()"/>
+        <br><br><br>
+        
         Cuánto dinero necesitás? <input id="dineroPrestado" type="number"/>
 
         <p>En cuántos meses querés devolverlo?
@@ -55,7 +65,7 @@
             </select>
         </p>
         <br/>
-        <input type="button" value="Realizar consulta" onclick="calculoCuotaMensual()"/>
+        
         <br/>
       
     </form>

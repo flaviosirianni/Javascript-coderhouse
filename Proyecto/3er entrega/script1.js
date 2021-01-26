@@ -3,6 +3,22 @@ var baseDeDatosIntereses = [];
 
 function calculoCuotaMensual(){
     //preventdefault();
+
+    /*
+    co = capital prestado
+    i = interes anual (3% -> 0.03)
+    n = número de períodos
+    a = cuota anual periódica constante
+
+    a = Co * ( i / (1 - (1 + i)^-n))
+    */
+    
+    let a = 0;
+    let co = 0;
+    let int = 0.66;
+    let n = 0;
+    
+
     var cuotaMensual = 0;
     var cuotaConInteres = 0;
     var r = document.getElementById("resultado");
@@ -18,6 +34,24 @@ function calculoCuotaMensual(){
 }
 
 
+function calculoCuotaMaxMensual(){
+    let sueldo = Number(document.getElementById("sueldo").value);
+    let gastos = Number(document.getElementById("gastos").value);
+    let cuotaMaxMensual = sueldo - gastos;
+    return cuotaMaxMensual;
+}
+
+function mostrarPrestamoMax(){
+    let coMax = 0;
+    let a = calculoCuotaMaxMensual();
+    let int = 0.66;
+    let n = 0;
+// Acá me quedé.
+// https://economipedia.com/definiciones/sistema-de-amortizacion-frances.html#:~:text=El%20sistema%20de%20amortizaci%C3%B3n%20franc%C3%A9s,que%20incluyen%20capital%20e%20intereses%20.&text=De%20esta%20forma%2C%20siempre%20pagaremos,un%20tipo%20de%20inter%C3%A9s%20fijo.
+
+}
+
+// Esto no me sirve más
 function calculoInteres(){
     let interes = 0;
     let plazo = Number(document.getElementById("plazoPago").value);
@@ -33,6 +67,7 @@ function calculoInteres(){
 }
 
 
+// Esto no me sirve más.
 class tablaIntereses{
     constructor(meses, intereses){
     this.cantMeses = meses;
@@ -61,6 +96,8 @@ Tengo que rediseñar todo. Preguntar no cuánto querés sino cuánto ganás y cu
 A partir de ahí tiene que calcular el máximo posible a prestar, y permitir elegir menos si el user 
 quiere. Y tiene que mostrarse tipo "en 60 cuotas es tanto x mes, en 48 cuotas es tanto x mes" y así.
 
+El máximo tiene que estar dado por CuotaMax o por 72 meses de tope, no pueden ser infinitas cuotas solo pqe 
+cierran los números.
 
 Tengo que preguntar cuánto cobra por mes, y cuánto paga de deudas.
 
