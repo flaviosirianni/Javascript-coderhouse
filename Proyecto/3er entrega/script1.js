@@ -53,3 +53,35 @@ baseDeDatosIntereses.push(meses36);
 baseDeDatosIntereses.push(meses48);
 baseDeDatosIntereses.push(meses60);
 baseDeDatosIntereses.push(meses72);
+
+
+/* 
+
+Tengo que rediseñar todo. Preguntar no cuánto querés sino cuánto ganás y cuánto pagás de deudas.
+A partir de ahí tiene que calcular el máximo posible a prestar, y permitir elegir menos si el user 
+quiere. Y tiene que mostrarse tipo "en 60 cuotas es tanto x mes, en 48 cuotas es tanto x mes" y así.
+
+
+Tengo que preguntar cuánto cobra por mes, y cuánto paga de deudas.
+
+Máxima Relacion Cuota Ingreso
+    CuotaMax -> (sueldo - deudaPrevia) / 2
+    bco Macro tiene 50% si tenes cuenta, 40% si no tenes cuenta.
+Monto Máximo a prestar
+Monto Mínimo a prestar
+Sistema de Amortización Francés
+Tipo de Tasa: Fija
+
+TNA = 66.00%
+TEA = 90.12% (ver bien por qué)
+CFT = 116.66% (ver bien por qué)
+
+
+co = capital prestado
+i = interes anual (3% -> 0.03)
+n = número de períodos
+a = cuota anual periódica constante
+
+a = Co * ( i / (1 - (1 + i)^-n))
+
+*/
