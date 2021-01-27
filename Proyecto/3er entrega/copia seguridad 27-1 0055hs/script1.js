@@ -1,9 +1,23 @@
-var mesesPrestamo = [12, 24, 36, 48, 60, 72];
-var interesAnual = 0.66 // TNA = 66%
-var cantAnios = [1,2,3,4,5];
+var baseDeDatosIntereses = [];
 
 
 function calculoCuotaMensual(){
+    //preventdefault();
+
+    /*
+    co = capital prestado
+    i = interes anual (3% -> 0.03)
+    n = número de períodos
+    a = cuota anual periódica constante
+
+    a = Co * ( i / (1 - (1 + i)^-n))
+    */
+    
+    let a = 0;
+    let co = 0;
+    let int = 0.66;
+    let n = 0;
+    
 
     var cuotaMensual = 0;
     var cuotaConInteres = 0;
@@ -26,32 +40,22 @@ function calculoCuotaMaxMensual(){
     let cuotaMaxMensual = (sueldo - gastos) / 2;
     console.log(cuotaMaxMensual);
     return cuotaMaxMensual;
+    
 }
 
 function calculoPrestamoMax(){
-    let coMax = [];
+    let coMax = 0;
     let a = 12 * calculoCuotaMaxMensual();
+    let int = 0.66;
+    let n = 5; // TODO que no sea arbitrario
 
-
-    for(let i = 0; i<cantAnios.length; i++){
-        // Cálculo interés Francés -> a = Co * ( i / (1 - (1 + i)^-n))
-        coMax.push((a / ( interesAnual / ( 1 - ((1 + interesAnual)**(-cantAnios[i])) ))).toFixed(0)); 
-    }
+    // Cálculo interés Francés -> a = Co * ( i / (1 - (1 + i)^-n))
+    coMax = (a / ( int / ( 1 - ((1 + int)^(-n)) ))); //TODO ver si realmente funciona bien.
+    console.log(a);
     console.log(coMax);
     
-    let aux = ``;
-
-    for(let i = 0; i < coMax.length; i++){
-        // TODO hacerlo andar así como corresponde
-        // aux += `
-        //     <ul class="totalDevuelto">  
-        //     <li>${coMax[i]}</li>
-        //     </ul>
-        // `;
-        document.write(coMax[i]); // así está claro que no va.
-    }
-    
     return coMax;
+    
 }   
 
 function calculoCuotaReal(){
@@ -75,6 +79,30 @@ function calculoInteres(){
 
     return interes/100;
 }
+
+
+// Esto no me sirve más.
+class tablaIntereses{
+    constructor(meses, intereses){
+    this.cantMeses = meses;
+    this.interes = intereses;
+    }
+}
+
+let meses12 = new tablaIntereses(12,8);
+let meses24 = new tablaIntereses(24,10);
+let meses36 = new tablaIntereses(36,12);
+let meses48 = new tablaIntereses(48,14);
+let meses60 = new tablaIntereses(60,16);
+let meses72 = new tablaIntereses(72,18);
+
+baseDeDatosIntereses.push(meses12);
+baseDeDatosIntereses.push(meses24);
+baseDeDatosIntereses.push(meses36);
+baseDeDatosIntereses.push(meses48);
+baseDeDatosIntereses.push(meses60);
+baseDeDatosIntereses.push(meses72);
+
 
 /* 
 
