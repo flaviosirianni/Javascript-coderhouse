@@ -5,53 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Préstamos Personales</title>
     <link rel="stylesheet" href="style.css"/>
-    <script src="script1.js"> </script>
+    <script src="simuladorPrestamos.js"> </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
 
     <h2>Simulador de Préstamos Personales</h2>
-    <h4>Flavio Sirianni</h4>
-    <h5>CoderHouse - JavaScript</h5>
-    <br/>
-    <hr><br/>
-    
-
-    <h4>Tabla de Intereses</h4>
-    <table border="5" id="tablaIntereses">
-        <tr>
-            <td>Meses</td>
-            <td>12 meses</td>
-            <td>24 meses</td>
-            <td>36 meses</td>
-            <td>48 meses</td>
-            <td>60 meses</td>
-            <td>72 meses</td>
-        </tr>
-        <tr>
-            <td>Interés</td>
-            <td value="8">8%</td>
-            <td>10%</td>
-            <td>12%</td>
-            <td>14%</td>
-            <td>16%</td>
-            <td>18%</td>
-        </tr>
-    </table>
-    <br/><br/>
-    <h4>TNA = 66.00%</h4>
-    <br><br>
+    <h5>Flavio Sirianni - CoderHouse - JavaScript</h5>
     <hr>
-    
+    <h4>TNA = 66.00%</h4>
+    <hr>
+    <h4>Por favor completá el siguiente formulario</h4>
     <form>
-        <br/><br/>
-        ¿Cuánto ganás por mes? <input id="sueldo" type="number"/>
-        <br/><br/>
-        ¿Cuánto pagás de otras cuotas por mes? <input id="gastos" type="number"/>
-        <br/><br/>
-        <input type="button" value="Realizar consulta" onclick="calculoCuotaMensual()"/>
-        <br><br><br>
+        <p>¿Cuánto ganás por mes? <input id="sueldo" type="number"/> </p>
+        <p>¿Cuánto pagás por mes? (otras cuotas) <input id="gastos" type="number"/></p>
         
+        <input type="button" class="botonesTipo1" value="Realizar consulta" onclick="calculoPrestamoMax()"/>
+        <br>
+        <br>
+        <br>
+       
+        
+    <!-- Esto lo tengo que pasar a JS.
+
         Cuánto dinero necesitás? <input id="dineroPrestado" type="number"/>
 
         <p>En cuántos meses querés devolverlo?
@@ -63,19 +40,13 @@
                 <option value="60">60 meses</option>
                 <option value="72">72 meses</option>
             </select>
-        </p>
-        <br/>
-        
-        <br/>
-      
+        </p>  
     </form>
-    <br/>
-    <button onclick = "calculoPrestamoMax()">MostrarCoMax</button>
-    <button onclick = "calculoCuotaReal()">MostrarCuotaReal</button>
+    
+    -->
+    
     <p><span id="resultado"> </span></p>
-    <ul id="totalDevuelto"></ul>
-    
-    
+    <div id="totalDevuelto"></div>
 
 </body>
 
