@@ -17,6 +17,7 @@ function calculoPrestamoMax(){
     let gastos = Number(document.getElementById("gastos").value);
     let a = 12 * calculoCuotaMaxMensual();
 
+
     if(a>0){
 
         if((sueldo/gastos)>=2){
@@ -52,17 +53,22 @@ function calculoPrestamoMax(){
 }   
 
 function mostrarValores(coMax2){
+//TODO hacer que funcione el titulo sin repetirse mil veces.
+    //let opcionesTitulo = document.getElementById("opcionesTitulo");
+    //let contenidoTitulo = document.createTextNode("Opciones disponibles");
+    //opcionesTitulo.appendChild(contenidoTitulo);
+
     for(let i = 0; i < coMax2.length; i++){
         var nuevoDiv = document.createElement("div");
         nuevoDiv.setAttribute("id", "opcionesPrestamos");
-        var nuevoContenido = document.createTextNode("Podemos prestarte máximo $ " + coMax2[i] + " a devolver en " + ((i+1)*12) + " cuotas");
+        var nuevoContenido = document.createTextNode("Podemos prestarte máximo $ " + coMax2[i] + " a devolver en " + ((i+1)*12) + " cuotas.");
         nuevoDiv.appendChild(nuevoContenido);
-        var divActual = document.getElementById("totalDevuelto");
-        document.body.insertBefore(nuevoDiv, divActual); 
+        document.body.insertBefore(nuevoDiv, null); 
     }      
 }
 
 function borrarValores(){    
+    
     for(let i = 0; i<cantAnios.length; i++){
         var divBorrable = document.getElementById("opcionesPrestamos");
         if(divBorrable != null){
