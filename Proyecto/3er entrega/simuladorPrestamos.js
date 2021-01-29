@@ -58,7 +58,7 @@ function mostrarValores(coMax2){
     //let contenidoTitulo = document.createTextNode("Opciones disponibles");
     //opcionesTitulo.appendChild(contenidoTitulo);
 
-    for(let i = 0; i < coMax2.length; i++){
+    for(let i = 0; i < coMax2.length; i++){ // TODO hacer esto con "la forma nueva". ${}
         var nuevoDiv = document.createElement("div");
         nuevoDiv.setAttribute("id", "opcionesPrestamos");
         var nuevoContenido = document.createTextNode("Podemos prestarte máximo $ " + coMax2[i] + " a devolver en " + ((i+1)*12) + " cuotas.");
