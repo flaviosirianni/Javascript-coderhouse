@@ -136,3 +136,5 @@ bdAlumnos.push(alumno_4);
 
 elCole.inscribirAlumnoEnCurso(36123123,1);
 console.log(electronica_1);
+
+
