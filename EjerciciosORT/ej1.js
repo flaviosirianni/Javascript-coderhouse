@@ -38,12 +38,18 @@ let bdCursos = [];
 let auxiliarAlumnos = null;
 
 class Cursada{
+    /* ------------- TIP: Nombre de parámetros en el constructor --------------
+        Conviene usar siempre los mismos nombres entre parámetros y atributos en el constructor
+        y luego diferenciarlos con this.... Eso hace que sea mucho más fácil de leer 
+        para un 3ero
+        Ejemplo this.alumnos = alumnado quedaría mejor this.alumnos = alumnos
+    */
     constructor(idCurso, especialidad, fechaInicio, cupox, profesor, alumnado){
         this.idCurso = idCurso;
         this.especialidad = especialidad;
         this.fechaInicio = fechaInicio;
         this.cupo = cupox;
-        this.profesor = profesor;
+        this.profesor = profesor; 
         this.alumnos = alumnado;
     }
 }
@@ -54,6 +60,14 @@ class Institucion{
         this.alumnos = bdAlumnos;
         this.profesores = bdProfesores;
     }
+    /* ------------- TIP: No usar break en el for --------------
+        No es buena práctica usar el break en el for. Esto es así porque la convención indica
+        que si vas a usar un for es porque querés recorrer TODO el rango definido si o si. Entonces
+        si el código lo mira un 3ero no tiene que preocuparse de ver si hay un break que te interrumpa el ciclo
+        y puede confiar que el rango se va a recorrer completo. 
+        Cuando en un ciclo hay una condición que lo puede interrumpir (lo que acá llevó al break), la estructura
+        que hay que usar es el while(), donde la condición de corte va a ser esa condición que llevó al break. 
+    */
     buscarAlumnoPorDNI(doc){
         let verificador = false;
         for(let i = 0;i<this.alumnos.length;i++){
@@ -67,9 +81,24 @@ class Institucion{
         }
         return verificador;
     }
+
+    /* ------------- TIP: No preguntar por true en el if --------------
+        El if() recibe como parámetro una expresión booleana, es decir un algoritmo que resulta en true o false.
+        Entonces, sin importar lo que se especifique en el if, por dentro siempre termina quedando if(true) o if(false)
+        Por ejemplo, un if que se ejecute si el numero es positivo
+        if(x > 0) {...}
+        if(5 > 0) al momento de ejecutarlo, el compilador lo simplifica y le queda if(true) y avanza. 
+        Esto quiere decir que jamás necesitamos incluir esto " ... == true" en la expresión del if, porque en última
+        instancia el compilador va a llegar a if(true == true) osea true, o if(false == true) osea false. Fijate que
+        siempre prevalece la primera condición. 
+        En este ejemplo if (this.buscarAlumnoPorDNI(doc) == true) va a terminar quedando if(true == true) osea true, o if(false == true)
+        osea false. Entonces conviene directamente dejarlo como if (this.buscarAlumnoPorDNI(doc))
+
+        Nota: fijate que en el if de verSiHayCupo() estás usando una expresión booleana sin comparar con "... == true". Así debe ser!
+    */
     registrarAlumno(doc,name,lastName,scolar){
         let verificador = false;
-        if(this.buscarAlumnoPorDNI(doc) == true){
+        if (this.buscarAlumnoPorDNI(doc) == true){
             verificador = false;
         } else {
             verificador = true;
@@ -85,6 +114,10 @@ class Institucion{
             }   
         }
     }
+    /* ------------- TIP: Nombre de funciones de checkeo --------------
+        La convención es "verbo + sustantivo" y nada más. En este caso sería "hayCupo()" o "tieneVacante()"
+        Otros ejemplos: "quedaStock()", "esPar()", "puedeVolar()", "estaDisponible()"
+    */
     verSiHayCupo(cursoID){
         let verificador = false;
         let aux = this.buscarCursoPorID(cursoID);
@@ -93,6 +126,30 @@ class Institucion{
         }
         return verificador;
     }
+    /* ------------- TIP: Tener sólo una responsabilidad por función --------------
+        Este es el más complejo, pero creo que está bueno mencionarlo. La función buscarAlumnoPorDNI() 
+        tiene dos responsabilidades claritas. Asigna un alumno a auxiliarAlumnos y devuelve true/false dependiendo si encontró 
+        o no al alumno. Esto puede traer distintos problemas a futuro, en este caso genera confusión cuando se llama al buscador
+        en inscribirAlumnoEnCurso(), ya que en la siguiente línea se utiliza a auxiliarAlumno y, viendo el código, es difícil
+        sobreentender o asumir que auxiliarAlumnos fue actualizado en el buscador. 
+        Entiendo que quizás la consigna lo planteaba de este modo, pero sería más saludable que la función buscarAlumnoPorDNI() 
+        devuelva lo que el nombre aparenta, es decir el alumno encontrado o undefined si no lo encuentra. 
+        Luego, en vez de usar el buscador dentro del if se puede preguntar si el alumno que devolvió el buscador es undefined o no. 
+        Algo asi... 
+        
+        inscribirAlumnoEnCurso(doc,cursoID){
+            let verificador = false;
+            let alumnoEncontrado = elCole.buscarAlumnoPorDNI(doc);
+            if (alumnoEncontrado && elCole.verSiHayCupo(cursoID)) {
+                let cursoAfectado = this.buscarCursoPorID(cursoID);
+                cursoAfectado.alumnos.push(alumnoEncontrado);
+                let verificador = true;
+                console.log (verificador);
+                return verificador;
+            }
+        }
+    */
+
     inscribirAlumnoEnCurso(doc,cursoID){
         let verificador = false;
         if((elCole.buscarAlumnoPorDNI(doc)==true)&&(elCole.verSiHayCupo(cursoID)==true)){
