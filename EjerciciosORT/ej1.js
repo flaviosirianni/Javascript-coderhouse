@@ -68,6 +68,7 @@ class Institucion{
         Cuando en un ciclo hay una condición que lo puede interrumpir (lo que acá llevó al break), la estructura
         que hay que usar es el while(), donde la condición de corte va a ser esa condición que llevó al break. 
     */
+
     buscarAlumnoPorDNI(doc){
         let verificador = false;
         for(let i = 0;i<this.alumnos.length;i++){
@@ -80,6 +81,7 @@ class Institucion{
             }
         }
         return verificador;
+        
     }
 
     /* ------------- TIP: No preguntar por true en el if --------------
