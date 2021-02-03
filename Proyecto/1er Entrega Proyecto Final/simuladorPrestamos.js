@@ -88,3 +88,12 @@ function moverSlider(){
     resultado.appendChild(valorInput);
     nodoPadre.insertBefore(resultado,null);
 }
+
+
+// TODO
+// Agregar más páginas html.
+// Cada html debería tener su .js asociado (osea un js por cada html).
+
+// TODO
+// Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
+

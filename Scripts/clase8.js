@@ -60,6 +60,7 @@ var asiSeHaceAhora = `
 console.log(asiSeHaceAhora);
 
 var aux = document.getElementById("resultado");
+
 aux.value = asiSeHaceAhora;
 
 //document.body.appendChild(asiSeHaceAhora);
