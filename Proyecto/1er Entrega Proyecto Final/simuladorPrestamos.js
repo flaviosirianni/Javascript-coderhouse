@@ -97,3 +97,5 @@ function moverSlider(){
 // TODO
 // Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
 
+// TODO
+// Sumar LOCALSTORAGE y JSON
