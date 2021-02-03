@@ -9,29 +9,22 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
-<body>
-
+<body onload="usarMemoria()">
     <h2>Simulador de Préstamos Personales</h2>
     <h5>Flavio Sirianni - CoderHouse - JavaScript</h5>
     <hr>
     <h4>TNA = 66.00%</h4>
     <hr>
     <h4>Por favor completá el siguiente formulario</h4>
-
-        <p>¿Cuánto ganás por mes? <input id="sueldo" type="number"/> </p>
-        <p>¿Cuánto pagás por mes? (otras cuotas) <input id="gastos" type="number"/></p>
-        
-        <input type="button" class="botonesTipo1" value="Realizar consulta" onclick="calculoPrestamoMax()"/>
-        <br/>
-    
+    <p>¿Cuánto ganás por mes? <input id="sueldo" type="number" onchange="guardarLocal()"/> </p>
+    <p>¿Cuánto pagás por mes? (otras cuotas) <input id="gastos" type="number" onchange="guardarLocal()"/></p>
+    <input id="realizarConsulta" type="button" class="botonesTipo1" value="Realizar consulta" onclick="calculoPrestamoMax()"/>
+    <br/>
     <div id="resultados">
         <div id="opcionesPrestamo"></div>
     </div>
-
-    <div id="masOpciones"></div>
-
-
-    
+    <div id="masOpcionesCuotas"></div>
+    <div id="masOpcionesSlider"></div>
 </body>
 
 </html>
