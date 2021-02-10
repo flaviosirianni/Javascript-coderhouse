@@ -61,6 +61,8 @@ function mostrarValores(coMax2){
         let nuevoDiv = document.createElement("div");
         nuevoDiv.setAttribute("id", "opcionesPrestamos");
         let nodoPadre = document.getElementById("opcionesPrestamo").parentNode;
+        //let nodoPadre = jquery.parent("#opcionesPrestamo");
+       
         let nuevoContenido = document.createTextNode("Podemos prestarte máximo $ " + coMax2[i] + " a devolver en " + ((i+1)*12) + " cuotas.");
         nuevoDiv.appendChild(nuevoContenido);
         nodoPadre.insertBefore(nuevoDiv, null);
@@ -68,6 +70,9 @@ function mostrarValores(coMax2){
     }
     mostrarCuotas();
     mostrarSlider(maximoPrestable);
+    
+    // Ejemplo JQUERY funcional.
+    console.log($("#opcionesPrestamos").parent());
 }
 
 function borrarValores(elemento){    
@@ -121,15 +126,6 @@ function moverSlider(){
 }
 
 
-// TODO
-// Agregar más páginas html.
-// Cada html debería tener su .js asociado (osea un js por cada html).
-
-// TODO
-// Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
-
-// TODO
-// Sumar LOCALSTORAGE y JSON
 function calcularOpcion(){
     let aux = document.getElementById("cantCuotas").value;
     let i = 0;   
@@ -152,3 +148,18 @@ function calcularOpcion(){
     }
 }
 
+
+// TODO
+// Agregar más páginas html.
+// Cada html debería tener su .js asociado (osea un js por cada html).
+
+// TODO
+// Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
+
+// TODO
+// cambiar los getElement por JQUERYs.
+
+// nota -> $(".carrito") me devuelve toda la Class carrito.
+// nota -> $("#carrito") ne devuelve solo el que tenga ID carrito.
+
+// TODO ver bien todo lo que se puede hacer con Jquery.
