@@ -48,3 +48,5 @@ function irYvolver(){
 // Hay una bocha mal de funciones con animaciones, investigar bien la documentación.
 
 // si pongo .css("background-color", "yellow"); ponele, me cambia los parámetros de css que pida.
+
+// .animate(parametros) rinde bocha me anima lo que yo tenga.
