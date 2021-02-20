@@ -160,6 +160,6 @@ function calcularOpcion(){
 // cambiar los getElement por JQUERYs.
 
 // nota -> $(".carrito") me devuelve toda la Class carrito.
-// nota -> $("#carrito") ne devuelve solo el que tenga ID carrito.
+// nota -> $("#carrito") me devuelve solo el que tenga ID carrito.
 
 // TODO ver bien todo lo que se puede hacer con Jquery e implementarlo.
