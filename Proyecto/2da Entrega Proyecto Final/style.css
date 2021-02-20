@@ -37,6 +37,24 @@ hr{
 }
 
 
+#botonAyuda {
+    background-image : url("question-icon.ico");
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    cursor: pointer;
+    border: 1px solid #025975;
+    border-radius: 50px;
+}
+
+#botonAyuda:hover{
+    background-color: whitesmoke;
+}
 
 input{
     color: #025975;
@@ -63,5 +81,28 @@ select{
     font-size: 16px;
     border: 2px solid #008CBA;
     border-radius: 8px;
-
 }
+
+.inputSlider {
+    width: 60%;
+    margin: 50px auto;
+    -webkit-appearance: none;
+    height: 16px;
+    border-radius: 40px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .inputSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background-color:#025975;
+    overflow: visible;
+    cursor: pointer;
+  }
+  
+  .slidecontainer {
+    transform: translateY(-10px);
+  }
