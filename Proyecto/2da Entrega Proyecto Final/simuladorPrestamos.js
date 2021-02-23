@@ -160,9 +160,4 @@ function ocultarAyuda(){
 // Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
 
 // TODO
-// cambiar los getElement por JQUERYs.
-
-// nota -> $(".carrito") me devuelve toda la Class carrito.
-// nota -> $("#carrito") me devuelve solo el que tenga ID carrito.
-
-// TODO ver bien todo lo que se puede hacer con Jquery e implementarlo.
+// Más JQuery
