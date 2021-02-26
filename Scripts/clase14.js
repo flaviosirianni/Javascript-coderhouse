@@ -4,6 +4,10 @@
 /*
 Verbos HTTP (hay más) para comunicar el front con el servidor.
 
+ ESTO APARENTEMENTE NO ANDA SI NO ESTAS USANDO LIVESERVER, sino no hay server xD
+ Para instalar live server voy al visual studio -> extensiones -> y ahi ta.
+ Despues reinicio el visual studio y toco abajo a la derecha GO LIVE.
+
 GET -> Tomar datos.
 POST -> Enviar datos.
 FETCH -> Es la forma más cheta de hacer GET.
