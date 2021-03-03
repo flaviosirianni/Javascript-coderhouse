@@ -12,8 +12,6 @@ function guardarLocal(){
 function usarMemoria(){
     let sueldo = document.getElementById("sueldo");
     let gastos = document.getElementById("gastos");
-    //let sueldo = $("#sueldo");
-    //let gastos = $("#gastos");
     sueldo.value = localStorage.getItem("sueldo");
     gastos.value = localStorage.getItem("gastos");
 }
@@ -143,13 +141,26 @@ function calcularOpcion(){
     }
 }
 
-
 function mostrarAyuda(){
     $("#textoAyuda").fadeIn(300);
 }
 
 function ocultarAyuda(){
     $("#textoAyuda").fadeOut(300);
+}
+
+function usarAjax(){
+    $.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales",function(data,status){
+       $("#dolarOficial").html(`
+        ${data[0].casa.nombre}  Compra: $ ${data[0].casa.compra}  Venta: $ ${data[0].casa.venta}
+       `);
+       $("#dolarBlue").html(`
+        ${data[1].casa.nombre}  Compra: $ ${data[1].casa.compra}  Venta: $ ${data[1].casa.venta}
+       `);
+       $("#bitcoin").html(`
+        ${data[5].casa.nombre}  Compra: $ ${data[5].casa.compra}  Venta: $ ${data[5].casa.venta}
+       `);
+    });
 }
 
 // TODO
@@ -160,4 +171,4 @@ function ocultarAyuda(){
 // Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
 
 // TODO
-// Más JQuery
+// Que se puedan esconder las cotizaciones.
