@@ -17,16 +17,16 @@ function usarMemoria(){
 }
 
 function calculoCuotaMaxMensual(){ // Funcion auxiliar de calculoPrestamoMax()
-    let sueldo = Number(document.getElementById("sueldo").value);
-    let gastos = Number(document.getElementById("gastos").value);
+    let sueldo = $("#sueldo").val();
+    let gastos = $("#gastos").val();
     let cuotaMaxMensual = (sueldo - gastos) / 2;
     return cuotaMaxMensual;
 }
 
 function calculoPrestamoMax(){
     let coMax = [];
-    let sueldo = Number(document.getElementById("sueldo").value);
-    let gastos = Number(document.getElementById("gastos").value);
+    let sueldo = $("#sueldo").val();
+    let gastos = $("#gastos").val();
     let a = 12 * calculoCuotaMaxMensual();
     if(a>0){
         if((sueldo/gastos)>=2){
@@ -35,7 +35,7 @@ function calculoPrestamoMax(){
                     coMax.push((a / ( interesAnual / ( 1 - ((1 + interesAnual)**(-cantAnios[i])) ))).toFixed(0)); // Cálculo interés Francés -> cuotaAnual = dineroPrestado * ( interesAnual / (1 - (1 + interesAnual)^-cantAnios))
                     cuotasMaximas.push({cantMeses: (cantAnios[i]*12), maxPrestable: coMax[i]});     
                 }
-            let aux = document.getElementById("opcionesPrestamos"); // Verifica que no haya otros valores ya mostrados en pantalla.
+            let aux = $("#opcionesPrestamos"); // Verifica que no haya otros valores ya mostrados en pantalla.
             if(aux == null){
                 mostrarValores(coMax); 
             } else {
@@ -61,18 +61,13 @@ function mostrarValores(coMax2){
         let nuevoDiv = document.createElement("div");
         nuevoDiv.setAttribute("id", "opcionesPrestamos");
         let nodoPadre = document.getElementById("opcionesPrestamo").parentNode;
-        //let nodoPadre = jquery.parent("#opcionesPrestamo");
-       
-        let nuevoContenido = document.createTextNode("Podemos prestarte máximo $ " + coMax2[i] + " a devolver en " + ((i+1)*12) + " cuotas.");
+        let nuevoContenido = document.createTextNode("En " + ((i+1)*12) + " cuotas, podemos prestarte hasta $ " + coMax2[i]);
         nuevoDiv.appendChild(nuevoContenido);
         nodoPadre.insertBefore(nuevoDiv, null);
         maximoPrestable = coMax2[i];
     }
     mostrarCuotas();
     mostrarSlider(maximoPrestable);
-    
-    // Ejemplo JQUERY funcional.
-    console.log($("#opcionesPrestamos").parent());
 }
 
 function borrarValores(elemento){    
@@ -87,10 +82,10 @@ function borrarValores(elemento){
 }
 
 function mostrarCuotas(){
-    if(document.getElementById("masOpcionesCuotas").innerText = " "){
-        document.getElementById("masOpcionesCuotas").innerHTML += `
+    if(!$("#masOpcionesCuotas").text()){
+        $("#masOpcionesCuotas").html(`
         <br/>
-        <h4> Necesitás otro importe? Seleccionalo a continuación. </h4>          
+        <h4> Elegí el préstamo que más se adapte a tus necesidades</h4>          
         <div>¿En cuántas cuotas querés devolver el dinero?
             <select id="cantCuotas" onclick="calcularOpcion()">
                 <option value="12">12 Cuotas</option>
@@ -100,34 +95,32 @@ function mostrarCuotas(){
                 <option value="60">60 Cuotas</option>
             </select>
             </div>
-        `;
+        `);
     }
 }    
 
 function mostrarSlider(maxSlider){
-    if(document.getElementById("masOpcionesSlider").innerText = " "){
-        document.getElementById("masOpcionesSlider").innerHTML += `
-        <div> Mínimo $1.000.- Máximo ${maxSlider}.-           
+    $("#masOpcionesSlider").html(`
+        <div> Mínimo $1.000.- Máximo ${maxSlider}.-
+            <br>           
             <input class="inputSlider" id="slider" name="amount" step="500" type="range" min="1000" max="${maxSlider}" onchange="moverSlider()"/>
         </div>
-        `;
-    }
+    `);
 }
 
 function moverSlider(){   
-    let valorSlider = document.getElementById("slider").value;
+    let valorSlider = $("#slider").val();
     let nodoPadre = document.getElementById("slider").parentNode;
-    let resultado = document.createElement("div");
+    let resultado = document.createElement("h4");
     resultado.setAttribute("id","mostrarResultado");
     borrarValores("mostrarResultado");    
-    valorInput = document.createTextNode("Importe solicitado: $ " + valorSlider);
+    valorInput = document.createTextNode("Importe a solicitar: $ " + valorSlider);
     resultado.appendChild(valorInput);
     nodoPadre.insertBefore(resultado,null);
 }
 
-
 function calcularOpcion(){
-    let aux = document.getElementById("cantCuotas").value;
+    let aux = $("#cantCuotas").val();
     let i = 0;   
     switch(aux){
         case '12':
@@ -148,6 +141,27 @@ function calcularOpcion(){
     }
 }
 
+function mostrarAyuda(){
+    $("#textoAyuda").fadeIn(300);
+}
+
+function ocultarAyuda(){
+    $("#textoAyuda").fadeOut(300);
+}
+
+function usarAjax(){
+    $.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales",function(data,status){
+       $("#dolarOficial").html(`
+        ${data[0].casa.nombre}  Compra: $ ${data[0].casa.compra}  Venta: $ ${data[0].casa.venta}
+       `);
+       $("#dolarBlue").html(`
+        ${data[1].casa.nombre}  Compra: $ ${data[1].casa.compra}  Venta: $ ${data[1].casa.venta}
+       `);
+       $("#bitcoin").html(`
+        ${data[5].casa.nombre}  Compra: $ ${data[5].casa.compra}  Venta: $ ${data[5].casa.venta}
+       `);
+    });
+}
 
 // TODO
 // Agregar más páginas html.
@@ -157,9 +171,4 @@ function calcularOpcion(){
 // Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
 
 // TODO
-// cambiar los getElement por JQUERYs.
-
-// nota -> $(".carrito") me devuelve toda la Class carrito.
-// nota -> $("#carrito") me devuelve solo el que tenga ID carrito.
-
-// TODO ver bien todo lo que se puede hacer con Jquery e implementarlo.
+// Que se puedan esconder las cotizaciones.
