@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Préstamos Personales</title>
-   
     <script src="jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="style.css"/>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="simuladorPrestamos.js"> </script>
+    <link rel="icon" href="favicon.ico">
 </head>
 
 <body onload="usarMemoria()">
-    <h2>Simulador de Préstamos Personales</h2>
-    <h5>Flavio Sirianni - CoderHouse - JavaScript</h5>
+    <img id="banner" src="banner.png" alt="">
     <hr>
     <h4>TNA = 66.00%</h4>
     <hr>
-    <input type="button" id="usarAjax" onclick="usarAjax()" value="Cotizaciones en Vivo"/>
+    <br/>
+    <input class="botonesTipo1" type="button" id="usarAjax" onclick="usarAjax()" value="Cotizaciones en Vivo"/>
     <div id="dolarOficial"></div>
     <div id="dolarBlue"></div>
     <div id="bitcoin"></div>
-    
-    <h4>Por favor completá el siguiente formulario</h4>
+    <h4>Por favor completá el siguiente formulario para cotizar tu préstamo:</h4>
     <div> Ingresos Netos mensuales 
         <input id="sueldo" type="number" onchange="guardarLocal()"/> 
     </div>
@@ -38,6 +37,6 @@
     </div>
     <div id="masOpcionesCuotas"></div>
     <div id="masOpcionesSlider"></div>
+    <input class="botonesTipo1" type="button" id="solicitarPrestamo" onclick="solicitarPrestamo()" value="Solicitar Préstamo" style="visibility:hidden"/>
 </body>
-
 </html>

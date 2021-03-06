@@ -106,6 +106,7 @@ function mostrarSlider(maxSlider){
             <input class="inputSlider" id="slider" name="amount" step="500" type="range" min="1000" max="${maxSlider}" onchange="moverSlider()"/>
         </div>
     `);
+    $("#solicitarPrestamo").css('visibility','visible');
 }
 
 function moverSlider(){   
@@ -149,26 +150,31 @@ function ocultarAyuda(){
     $("#textoAyuda").fadeOut(300);
 }
 
-function usarAjax(){
-    $.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales",function(data,status){
-       $("#dolarOficial").html(`
-        ${data[0].casa.nombre}  Compra: $ ${data[0].casa.compra}  Venta: $ ${data[0].casa.venta}
-       `);
-       $("#dolarBlue").html(`
-        ${data[1].casa.nombre}  Compra: $ ${data[1].casa.compra}  Venta: $ ${data[1].casa.venta}
-       `);
-       $("#bitcoin").html(`
-        ${data[5].casa.nombre}  Compra: $ ${data[5].casa.compra}  Venta: $ ${data[5].casa.venta}
-       `);
-    });
+function usarAjax(){    
+    if($("#usarAjax").val()== "Cotizaciones en Vivo"){
+        $("#dolarOficial").fadeIn(150);
+        $("#dolarBlue").fadeIn(150);
+        $("#bitcoin").fadeIn(150);
+        $.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales",function(data,status){
+        $("#dolarOficial").html(`
+            ${data[0].casa.nombre}  Compra: $ ${data[0].casa.compra}  Venta: $ ${data[0].casa.venta}
+        `);
+        $("#dolarBlue").html(`
+            ${data[1].casa.nombre}  Compra: $ ${data[1].casa.compra}  Venta: $ ${data[1].casa.venta}
+        `);
+        $("#bitcoin").html(`
+            ${data[5].casa.nombre}  Compra: $ ${data[5].casa.compra}  Venta: $ ${data[5].casa.venta}
+        `);
+        });
+        $("#usarAjax").prop("value", "Ocultar Cotizaciones");
+    } else{
+        $("#dolarOficial").fadeOut(300);
+        $("#dolarBlue").fadeOut(300);
+        $("#bitcoin").fadeOut(300);
+        $("#usarAjax").prop("value", "Cotizaciones en Vivo");
+    }
 }
 
-// TODO
-// Agregar más páginas html.
-// Cada html debería tener su .js asociado (osea un js por cada html).
-
-// TODO
-// Agregar algo móvil tipo un slider que salga de costado o algo con fotitos.
-
-// TODO
-// Que se puedan esconder las cotizaciones.
+function solicitarPrestamo(){
+    window.open("formSolicitud.html" , "formSolicitud" , "width=450,height=550,scrollbars=NO,top=100,left=100");
+}
