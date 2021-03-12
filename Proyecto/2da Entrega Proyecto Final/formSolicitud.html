@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Solicitud de Préstamo</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="formSolicitud.js"></script>
+</head>
+<body id="bodyForm">
+        <h4 id="tituloForm">Por favor completa los siguientes campos</h4>
+        <div> Nombre 
+            <input id="nombre" type="text" onchange="validarForm()"/> 
+        </div>
+        <div> Apellido 
+            <input id="apellido" type="text" onchange="validarForm()"/> 
+        </div>
+        <div> DNI 
+            <input id="dni" type="number" onchange="validarForm()"/> 
+        </div>
+        <div> Teléfono 
+            <input id="telefono" type="number" onchange="validarForm()"/> 
+        </div>
+        <div> Email 
+            <input id="mail" type="email" onchange="validarForm()"/> 
+        </div>
+        <input class="botonesTipo1" type="button" id="finalizar" onclick="finalizarProceso()" value="Solicitar Prestamo" disabled/>
+
+</body>
+</html>

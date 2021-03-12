@@ -1,10 +1,14 @@
 * {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 * {background-color: rgb(234, 242, 245);}
 * {color:#025975}
-* {margin: 20px 15px}
+* {margin: 20px 60px}
 
 hr{
     margin: 0px;
+}
+
+#bodyForm{
+    margin: 20px 0px;
 }
 
 .botonesTipo1 {
@@ -18,7 +22,7 @@ hr{
     text-align: center;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 14px;
+    margin: 10px 65px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -36,6 +40,11 @@ hr{
     color: white;
 }
 
+.botonesTipo1:disabled {
+    background-color: #878a8a;
+    color: rgb(167, 167, 167);
+    border: 2px solid #878a8a;
+}
 
 #botonAyuda {
     background-image : url("question-icon.ico");
