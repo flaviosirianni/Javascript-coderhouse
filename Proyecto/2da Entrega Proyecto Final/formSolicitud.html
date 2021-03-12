@@ -11,22 +11,21 @@
     <script src="formSolicitud.js"></script>
 </head>
 <body id="bodyForm">
-    
         <h4 id="tituloForm">Por favor completa los siguientes campos</h4>
         <div> Nombre 
-            <input id="nombre" type="text" onchange="guardarForm()"/> 
+            <input id="nombre" type="text" onchange="validarForm()"/> 
         </div>
         <div> Apellido 
-            <input id="apellido" type="text" onchange="guardarForm()"/> 
+            <input id="apellido" type="text" onchange="validarForm()"/> 
         </div>
         <div> DNI 
-            <input id="dni" type="number" onchange="guardarForm()"/> 
+            <input id="dni" type="number" onchange="validarForm()"/> 
         </div>
         <div> Teléfono 
-            <input id="telefono" type="number" onchange="guardarForm()"/> 
+            <input id="telefono" type="number" onchange="validarForm()"/> 
         </div>
         <div> Email 
-            <input id="mail" type="email" onchange="guardarForm()"/> 
+            <input id="mail" type="email" onchange="validarForm()"/> 
         </div>
         <input class="botonesTipo1" type="button" id="finalizar" onclick="finalizarProceso()" value="Solicitar Prestamo" disabled/>
 
